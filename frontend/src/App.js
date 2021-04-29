@@ -1,8 +1,12 @@
+import Header from './components/Footer'
+import Footer from './components/Header'
 
 function App() {
   return (
     <div className="App">
-      sick bookshop grrl
+      <Header />
+      <h1>sick bookshop grrl</h1>
+      <Footer />
     </div>
   );
 }
