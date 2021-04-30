@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Button, Card } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import products from '../products'
-import { propTypes } from 'react-bootstrap/esm/Image'
 
 const ProductPage = ({ match }) => {
-    const product = products.find((p) => p._id == match.params.id)
+    const product = products.find((p) => p._id === match.params.id)
     return (
         <div>
             <Link to={'/'} className='btn btn-light my-3'>Go Back</Link>
@@ -58,7 +57,7 @@ const ProductPage = ({ match }) => {
                             </ListGroup.Item>
 
                             <ListGroup.Item>
-                                <Button className='btn-block' disabled={product.countInStock == 0} type='button'>
+                                <Button className='btn-block' disabled={product.countInStock === 0} type='button'>
                                     Add to Cart
                                 </Button>
                             </ListGroup.Item>
