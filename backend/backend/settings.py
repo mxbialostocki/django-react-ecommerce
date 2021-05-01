@@ -15,12 +15,19 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+DEPLOY_FILE = os.path.join(BASE_DIR, 'env.json')
+if os.path.exists(DEPLOY_FILE):
+    import json
+    with open(DEPLOY_FILE, 'rt') as ej:
+        environ = json.load(ej)
+else:
+    environ = {}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')4zfmt%p5@r==9yl6@v_*zb67iwip#owy=1an$lndu=6o-)64$'
+SECRET_KEY = environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
